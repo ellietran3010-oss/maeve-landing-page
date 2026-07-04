@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MAEVE | BUILD YOUR PRESENCE</title>
+<meta name="description" content="MAEVE exists for the woman who's done performing and ready to simply arrive. Confidence isn't loud. It's consistent.">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+              "surface-container": "#f1edec",
+              "inverse-on-surface": "#f4f0ef",
+              "primary-fixed-dim": "#c8c6c5",
+              "primary-container": "#1c1b1b",
+              "on-secondary-fixed-variant": "#4b463e",
+              "outline-variant": "#c4c7c7",
+              "primary-fixed": "#e5e2e1",
+              "on-tertiary-fixed": "#1c1b1a",
+              "inverse-surface": "#313030",
+              "on-surface": "#1c1b1b",
+              "on-primary-fixed": "#1c1b1b",
+              "surface-variant": "#e5e2e1",
+              "surface-container-highest": "#e5e2e1",
+              "surface-dim": "#ddd9d8",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-container": "#1c1b1a",
+              "secondary": "#635e55",
+              "secondary-fixed": "#eae1d6",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#6a635b",
+              "primary": "#000000",
+              "on-primary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#484645",
+              "secondary-fixed-dim": "#cec5bb",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#1f1b15",
+              "on-primary-container": "#858383",
+              "surface-tint": "#5f5e5e",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "outline": "#747878",
+              "surface": "#fdf8f8",
+              "tertiary-fixed-dim": "#cac6c4",
+              "tertiary": "#000000",
+              "secondary-container": "#eae1d6",
+              "surface-container-high": "#ebe7e6",
+              "tertiary-fixed": "#e6e2df",
+              "surface-container-low": "#f7f3f2",
+              "background": "#fdf8f8",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#474746",
+              "surface-bright": "#fdf8f8",
+              "on-tertiary-container": "#868382",
+              "on-surface-variant": "#444748"
+          },
+          "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+          },
+          "spacing": {
+              "gutter": "32px",
+              "margin-desktop": "80px",
+              "section-gap": "128px",
+              "margin-mobile": "24px",
+              "unit": "8px",
+              "container-max": "1440px"
+          },
+          "fontFamily": {
+              "headline-lg": ["EB Garamond"],
+              "headline-lg-mobile": ["EB Garamond"],
+              "display-lg": ["EB Garamond"],
+              "label-sm": ["Hanken Grotesk"],
+              "body-lg": ["Hanken Grotesk"],
+              "body-md": ["Hanken Grotesk"],
+              "headline-md": ["EB Garamond"]
+          },
+          "fontSize": {
+              "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400"}],
+              "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400"}],
+              "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+              "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+              "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+              "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+              "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+</script>
+<style>
+    html, body {
+        overflow-anchor: none;
+    }
+    body {
+        background-color: #fdf8f8;
+        color: #1c1b1b;
+        -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    }
+    .text-label-caps {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        font-weight: 600;
+    }
+    .tracking-editorial {
+        letter-spacing: 0.05em;
+    }
+    .image-zoom-hover {
+        overflow: hidden;
+    }
+    .image-zoom-hover img {
+        transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .image-zoom-hover:hover img {
+        transform: scale(1.05);
+    }
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-on-scroll.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .line-clamp-6 {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .expanded .line-clamp-6 {
+        display: block;
+        -webkit-line-clamp: initial;
+    }
+</style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary">
+
+<!-- Navigation (shared across breakpoints) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md transition-shadow duration-300">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto h-16 md:h-20">
+<a class="text-lg md:text-headline-md md:font-headline-md font-bold uppercase tracking-[0.2em] text-primary" href="/">MAEVE</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#tribes">TRIBES</a>
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#philosophy">PHILOSOPHY</a>
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#behind">BEHIND MAEVE</a>
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#leads">JOIN</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:inline-flex text-primary hover:opacity-70 transition-opacity" aria-label="Shopping bag">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="md:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle menu">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Mobile Menu Overlay (kept outside <header> so its `fixed inset-0` positions against the viewport, not the header's backdrop-blur containing block) -->
+<div class="hidden fixed inset-0 top-16 bg-background z-40 pt-4 px-margin-mobile flex-col gap-8" id="mobile-menu">
+<a class="font-headline-lg-mobile text-headline-lg-mobile border-b border-outline-variant pb-4" href="#tribes-m">TRIBES</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile border-b border-outline-variant pb-4" href="#philosophy-m">PHILOSOPHY</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile border-b border-outline-variant pb-4" href="#behind-m">BEHIND MAEVE</a>
+<a class="font-headline-lg-mobile text-headline-lg-mobile border-b border-outline-variant pb-4" href="#leads-m">JOIN</a>
+</div>
+
+<main class="pt-16 md:pt-20">
+
+<!-- ================= MOBILE VIEW (< md) ================= -->
+<div id="mobile-view" class="md:hidden">
+
+  <!-- Hero -->
+  <section class="relative min-h-[90vh] flex flex-col justify-end px-margin-mobile pb-20 overflow-hidden items-center">
+  <div class="relative z-10 space-y-6 max-w-xl mx-auto text-center">
+  <span class="text-label-caps opacity-60 text-primary">A NEW CHAPTER IN IDENTITY</span>
+  <div class="mb-12 max-w-2xl mx-auto aspect-[1.79] overflow-hidden bg-surface-dim">
+  <img src="https://lh3.googleusercontent.com/aida/AP1WRLuThoti2U1CoO6IZtZsnGk7hwy1yY_uTernql0L1VEiDzP5lOKn2KNzWsL5TzopfDbvPqlWxycWZ8SQ_3773mFfymAtvUGYCPZFxFFADephM36i9dzo_OrdkG7gvBNtCkO6bX9ifEVHHfv0MNCjaSMniwRiyUVHrattlLc0quCFV2CgIm_PXXnecF7kfZ0A9iscJKdIcMxJDScHBiQDjLz79LleMT7akz9ss2WuuIDtKT_n4DtxsITKpg" class="w-full h-full object-cover grayscale" alt="Editorial presence">
+  </div>
+  <h1 class="font-headline-lg-mobile text-[56px] leading-[1.1] tracking-tighter text-primary">
+  <div>Confidence isn't loud.</div>
+  <div>It's consistent.</div>
+  </h1>
+  <p class="font-body-md max-w-sm text-primary mx-auto">MAEVE exists for the woman who's done performing and ready to simply arrive.</p>
+  <div class="pt-4">
+  <a href="#leads-m" class="inline-block bg-primary text-on-primary px-10 py-4 font-label-caps tracking-widest text-[11px] hover:bg-on-primary-container transition-all">GET EARLY ACCESS</a>
+  </div>
+  </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-section-gap px-margin-mobile text-center" id="philosophy-m">
+  <div class="max-w-2xl mx-auto space-y-8">
+  <span class="material-symbols-outlined text-outline text-4xl">auto_awesome</span>
+  <h2 class="font-headline-lg-mobile text-headline-lg-mobile italic text-primary">"Confidence needs a shape to move through the world in."</h2>
+  <div class="w-12 h-[1px] bg-primary mx-auto"></div>
+  <p class="font-body-md text-secondary leading-relaxed px-4">
+  Who you are &rarr; What you wear &rarr; What people trust.<br>
+  Maeve isn't chasing trends. Maeve dresses the presence you already have and elevate.
+  </p>
+  </div>
+  </section>
+
+  <!-- Tribes -->
+  <section class="px-margin-mobile space-y-20 py-20 bg-surface-container-lowest" id="tribes-m">
+  <div class="space-y-4">
+  <span class="text-label-caps text-primary">IDENTITY SERIES</span>
+  <h3 class="font-headline-lg-mobile text-headline-lg-mobile">Is This You?</h3>
+  </div>
+  <div class="flex flex-col gap-16">
+  <!-- Tribe 1 -->
+  <div class="group">
+  <div class="aspect-[1.79] overflow-hidden bg-surface-dim">
+  <img class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" alt="Building Presence" src="https://lh3.googleusercontent.com/aida/AP1WRLuThoti2U1CoO6IZtZsnGk7hwy1yY_uTernql0L1VEiDzP5lOKn2KNzWsL5TzopfDbvPqlWxycWZ8SQ_3773mFfymAtvUGYCPZFxFFADephM36i9dzo_OrdkG7gvBNtCkO6bX9ifEVHHfv0MNCjaSMniwRiyUVHrattlLc0quCFV2CgIm_PXXnecF7kfZ0A9iscJKdIcMxJDScHBiQDjLz79LleMT7akz9ss2WuuIDtKT_n4DtxsITKpg">
+  </div>
+  <div class="mt-6 space-y-3">
+  <h4 class="font-headline-md text-headline-md">Building Presence</h4>
+  <p class="font-body-md text-secondary">Ambition looks good on you. You dress like the room is already yours.</p>
+  </div>
+  </div>
+  <!-- Tribe 2 -->
+  <div class="group">
+  <div class="aspect-[1.79] overflow-hidden bg-surface-dim">
+  <img class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" alt="Quiet Velocity" src="https://lh3.googleusercontent.com/aida/AP1WRLvO0a8fOhJkGw5wMLxuVvc6fNeoMfHqWV6ZGtAj-SM56E_elNFXiGW2r6jxqbSjKRPBHYm40RwBDy7Czf1PAVyWkeOIQU6G7r86YDr_CSFP_xDAEanZHU7WUuTCL1Qhu0wGUm3qCWFJx82HRjqy1FO5T3R7-BmdHVZpKXavPT0j_uTNdJtGTZdJOVuWr7ZShL7XzdLVdTscCdCm4uTd56qqUrz1Xc36eZON7Z5KyldB5jpMeXyPLeaRjQ">
+  </div>
+  <div class="mt-6 space-y-3">
+  <h4 class="font-headline-md text-headline-md">Quiet Velocity</h4>
+  <p class="font-body-md text-secondary">No time to decide twice. You need it right the first time.</p>
+  </div>
+  </div>
+  <!-- Tribe 3 -->
+  <div class="group">
+  <div class="aspect-[1.79] overflow-hidden bg-surface-dim">
+  <img class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" alt="The Reconstruction" src="https://lh3.googleusercontent.com/aida/AP1WRLt_Xsdytm_fWIFdAQ7Tqadd27-qY8pa51xxCutuYfQO8NSFJv8T3XzBzqMVKqF-Po83AY1y4Rh813FUOkpuOBhjW0sdMQoBL9GDL33Hs5wCBLxgYrl-_keebN4iHoeJHRNh-bXuQAMYmIkppVLFeo7VXGGLOCqUDrYITeAD_8coiNL-mucs6Lkk_KMX7K7NoSunlfTXpg8O8IQaEqWwu3hxiNNZi1zVryQbH-HVCoLN82afdisU1wKDEg">
+  </div>
+  <div class="mt-6 space-y-3">
+  <h4 class="font-headline-md text-headline-md">The Reconstruction</h4>
+  <p class="font-body-md text-secondary">A moment of reflection. Finding strength in the softness of a new beginning.</p>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <!-- Behind Maeve / Founder's Note -->
+  <section class="relative py-section-gap px-margin-mobile overflow-hidden bg-surface" id="behind-m">
+  <div class="absolute right-[-10%] top-10 w-64 h-64 opacity-10 pointer-events-none">
+  <img class="w-full h-full object-contain" alt="Founder's sketch" src="https://lh3.googleusercontent.com/aida/AP1WRLvCPVJyHyYcro9Ez8X4odVTyQrPLxOOucTkdya5J_FUaqiOtnL_Dmnirdu5559azEKRjeY4-x7SBUzyxCySka4gScu4t8fdMBAjNvetSdZqX-0KR-LHeUhTbPUH0wk1lguuI9z1-ioNbysG0kJAHcFHbT9FKad2nhwDfMYeIAeLlIJbQHpVojlJ0P5SqAb0JmvbE7cHCyKBYTaZghGMSikc-vFxJSlviyqFfhhHdoc9MgvecwI9BfE_dQ">
+  </div>
+  <div class="max-w-xl mx-auto relative z-10">
+  <span class="text-label-caps text-secondary mb-4 block">THE GENESIS</span>
+  <h3 class="font-headline-lg-mobile text-headline-lg-mobile mb-8">The Founder's Note</h3>
+  <div class="space-y-6" id="text-container">
+  <p class="font-body-lg text-primary leading-relaxed line-clamp-6">
+  MAEVE began not as a brand, but as a question: How do we maintain our center in a world that demands we be everything at once? My journey through the intersections of art, architecture, and fashion taught me that the most powerful thing a woman can possess is not an accessory, but an aura of intentionality. This platform is a curation of that philosophy.
+  </p>
+  <p class="font-body-md text-secondary leading-relaxed line-clamp-6">
+  Every piece of content, every aesthetic choice, and every 'tribe' we celebrate is a testament to the belief that luxury is found in the subtraction of the unnecessary. We are building a space where the modern woman can find herself reflected in the mirrors of high-end editorial artistry and intellectual depth.
+  </p>
+  <button class="text-label-caps text-primary border-b border-primary pb-1 hover:text-secondary transition-colors" id="read-more-btn" onclick="toggleReadMore()">READ FULL NOTE</button>
+  </div>
+  </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-margin-mobile bg-primary text-on-primary" id="leads-m">
+  <div class="max-w-md mx-auto text-center space-y-10">
+  <h3 class="font-headline-lg-mobile text-headline-lg-mobile">Enter the Inner Circle.</h3>
+  <p class="font-body-md text-on-primary-container">Receive our weekly curation of thought, form, and presence.</p>
+  <form class="space-y-6" onsubmit="return false;">
+  <div class="relative">
+  <input class="w-full bg-transparent border-b border-on-primary-container py-4 text-label-caps focus:border-on-primary focus:ring-0 outline-none placeholder:text-on-primary-container transition-colors" placeholder="EMAIL ADDRESS" type="email" required>
+  </div>
+  <button class="w-full bg-on-primary text-primary py-5 font-label-caps tracking-[0.2em] hover:bg-surface-variant transition-colors" type="submit">JOIN MAEVE</button>
+  </form>
+  </div>
+  </section>
+
+</div>
+
+<!-- ================= DESKTOP VIEW (>= md) ================= -->
+<div id="desktop-view" class="hidden md:block">
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center overflow-hidden bg-surface-container-low">
+  <div class="absolute inset-0 z-0">
+  <div class="w-full h-full bg-cover bg-center grayscale opacity-90" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc47u7RF9_TGs0u43ysDOdfB-yUaClgqVhaNfyBqTTIq1SYULmE8pnSTUVpxMNgdjfKD9F_JSodr_EL61QCaby2aFNZ9p7tyZGcqrSvib4NbmAVJEXo4bJOtiYNm43C34SoYCjb-x28UG-MA03aErliAwjxU0aHhpLj8Ohv3IBv5lkDVadhNnhW4YHWoYPFXeBChAWR1Kg_Ygnex-Glrpsov7QV1V2Z6Z8EgBZimb0STpqCHhBQrc')"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-surface-container-low/90 via-surface-container-low/40 to-transparent"></div>
+  </div>
+  <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
+  <div class="max-w-2xl reveal-on-scroll active">
+  <h1 class="font-display-lg text-display-lg text-primary leading-[1.1] mb-8 tracking-editorial uppercase">Confidence isn't loud.<br>It's consistent.</h1>
+  <p class="font-headline-md text-headline-md text-on-surface-variant leading-snug mb-12 max-w-lg">MAEVE exists for the woman who's done performing and ready to simply arrive.</p>
+  <a class="inline-block border border-primary text-primary px-12 py-5 font-label-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all duration-500" href="#leads">GET EARLY ACCESS</a>
+  </div>
+  </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-section-gap bg-background" id="philosophy">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+  <div class="md:col-span-6 lg:col-span-5 reveal-on-scroll active">
+  <span class="text-label-sm text-outline uppercase tracking-[0.3em] block mb-6">PHILOSOPHY</span>
+  <h2 class="font-display-lg text-headline-lg text-primary mb-10 leading-tight tracking-editorial">Confidence needs a shape to move through the world in.</h2>
+  </div>
+  <div class="md:col-start-8 md:col-span-5 reveal-on-scroll active">
+  <p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-8">What you wear is how it becomes visible.</p>
+  <p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-8">Who you are &rarr; What you wear &rarr; What people trust.</p>
+  <p class="font-body-lg text-body-lg text-on-surface leading-relaxed italic">Maeve isn't chasing trends. Maeve dresses the presence you already have and elevate.</p>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <!-- Tribes -->
+  <section class="py-section-gap bg-surface-container-low" id="tribes">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+  <div class="mb-32 text-center reveal-on-scroll active">
+  <h2 class="font-display-lg text-headline-lg text-primary uppercase tracking-[0.1em]">Is This You?</h2>
+  </div>
+  <div class="space-y-48">
+  <!-- Tribe 1 -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+  <div class="md:col-span-7 image-zoom-hover reveal-on-scroll active">
+  <img alt="The Woman Building Her Presence" class="w-full grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLt-4qf8TM0vCJaaFoyDwChFgXMmTeoIqrMF8VINAJ39rvKgEfJLrZL951NsvgV5Q-_gdMoqJoKZl70PiRZ-7MuLTF_L_Pb9zQ3Mrea_I35re_nMSj8pc9mbBfzz-S62eRUtT3ZvWQa8o4ii47tXOONHjJraWPaFVRxXJ_dxNYEasnMBPXm8HwaEBzG0Wu_bl282dFtYK7z-4F8AfCtz5ZoD_w66u2iOtOSqctSxt8UCN97NAc6RVRP42w">
+  </div>
+  <div class="md:col-start-9 md:col-span-4 reveal-on-scroll active">
+  <span class="text-label-sm text-outline mb-4 block tracking-widest uppercase">TRIBE 01</span>
+  <h3 class="font-headline-lg text-headline-md text-primary mb-6 uppercase tracking-editorial">The Woman Building Her Presence</h3>
+  <p class="font-body-lg text-secondary mb-8 leading-relaxed">Ambition looks good on you. You dress like the room is already yours.</p>
+  </div>
+  </div>
+  <!-- Tribe 2 -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+  <div class="md:col-span-4 reveal-on-scroll order-2 md:order-1 active">
+  <span class="text-label-sm text-outline mb-4 block tracking-widest uppercase">TRIBE 02</span>
+  <h3 class="font-headline-lg text-headline-md text-primary mb-6 uppercase tracking-editorial">The Woman Rebuilding Herself</h3>
+  <p class="font-body-lg text-secondary mb-8 leading-relaxed">You're not who you were. You're not dressing to hide that — you're dressing to prove it.</p>
+  </div>
+  <div class="md:col-start-6 md:col-span-7 image-zoom-hover reveal-on-scroll order-1 md:order-2 active">
+  <img alt="The Woman Rebuilding Herself" class="w-full grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLv0N5OdoqjU7SAEwsU7f41mKyAxQvynutjYLJ-HVJzWSUBL832t8yvFl_FS0tZLuY1qOsxHWmvRMv7uwGng3VhNQrAQmatSSLDeNXPw417g1XcCp3JxWkpdQXitAD1y3AkeQ_WGzsf3JOIRffJ5z7fwIQ2KUQ_X9IIvJwRRqwabpHdeKwEIP8selSCrX7AfoiqBrnNQFuJskFZ_3wLZTm4EoFQNgxkMwKSFS5Cd9qgE4eCs-l3nBE5nGw">
+  </div>
+  </div>
+  <!-- Tribe 3 -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+  <div class="md:col-span-7 image-zoom-hover reveal-on-scroll active">
+  <img alt="The Always Busy Woman" class="w-full grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLv6Gnybtc_fGWMxvp85coG10pqQE-vfgiKiTEY0yCTeH_06tn0sAWHfvDL27iLcP67R19P6Bpf1-rertW6LAxWlbBa0qNgoXBY_pxrUX5PXj6CrvQh9Koe7HuiazVK0smG0aFwzafQ5yzcexWSl6bMGgA7HmNjck-9THt4Ag0esxc90p69wzEN3RYhLioUsUHtp4aE4RnK_lEJqaQa4lhhf3TVBXEw6IjJh7Ou1xCFeXjtACfV9_z1t1w">
+  </div>
+  <div class="md:col-start-9 md:col-span-4 reveal-on-scroll active">
+  <span class="text-label-sm text-outline mb-4 block tracking-widest uppercase">TRIBE 03</span>
+  <h3 class="font-headline-lg text-headline-md text-primary mb-6 uppercase tracking-editorial">The Always Busy Woman</h3>
+  <p class="font-body-lg text-secondary mb-8 leading-relaxed">No time to decide twice. You need it right the first time.</p>
+  </div>
+  </div>
+  </div>
+  <div class="mt-32 text-center reveal-on-scroll active">
+  <p class="font-headline-md text-primary italic">"One of these is you. Keep going."</p>
+  </div>
+  </div>
+  </section>
+
+  <!-- Behind Maeve -->
+  <section class="min-h-screen overflow-hidden bg-surface-container-low py-section-gap" id="behind">
+  <div class="max-w-container-max mx-auto px-margin-desktop h-full flex items-center">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center w-full">
+  <div class="md:col-span-6 reveal-on-scroll active">
+  <div class="relative">
+  <img alt="Founder's Sketch" class="w-full h-auto mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida/AP1WRLtHhwItujOU9o8TWyCK8Jh7ZFDytbDjXtaLBMiYRT__5QB3758rbVicOCK47KqquVEuikhJ7PQm_hepRD-mArsfapqRF9XlPtqfXuukOhkxj-NP1LLjS6YE7bTlO7snbjD0A08ZPX0XjlNjXWAtEEzfogD_6sW20u6rxf6DMf_JqRDrqVGEjLzLZeM2f-l3N3AO-81EwxI3XDxmS0B48BIPDrUFUU1BZ0Yc7OxEGFtTxe3gcfdJCobhfA">
+  </div>
+  </div>
+  <div class="md:col-span-6 reveal-on-scroll active flex flex-col justify-center">
+  <span class="text-label-sm text-outline uppercase tracking-[0.4em] block mb-8">BEHIND MAEVE</span>
+  <h2 class="font-display-lg text-headline-lg text-primary leading-tight tracking-editorial mb-12">A legacy of<br>silent strength.</h2>
+  <div class="font-headline-md text-body-lg text-primary leading-snug italic space-y-6">
+  <p class="leading-relaxed">I grew up around sewing machines and fabric — this business ran in my family before it was ever mine.</p>
+  <p class="leading-relaxed">I went out into the world to learn, worked on projects that didn't turn out the way I planned, pulled all-nighters chasing deadlines no one else cared about, and rebuilt myself completely in my thirties.</p>
+  <p class="leading-relaxed">But through all of it, one thing never changed: confidence was never about getting everything right. It was about showing up as my best self anyway and trusting that would be enough.</p>
+  <p class="leading-relaxed">"That's what Maeve is built on."</p>
+  <p class="text-label-sm uppercase tracking-widest not-italic text-outline mt-8">Every design is a tribute to that silent strength. We don't make costumes; we craft the vessel for your character.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <!-- Lead Gen -->
+  <section class="py-section-gap bg-background" id="leads">
+  <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+  <div class="max-w-2xl mx-auto reveal-on-scroll active">
+  <h2 class="font-display-lg text-headline-lg text-primary mb-6 uppercase tracking-editorial">Early access opens before the public does.</h2>
+  <p class="font-label-sm text-secondary mb-16 tracking-[0.2em] uppercase">No noise. One note when it's time.</p>
+  <form class="max-w-md mx-auto" onsubmit="return false;">
+  <div class="mb-10">
+  <input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary py-4 px-0 text-center font-label-sm uppercase tracking-widest placeholder:text-outline/40" placeholder="ENTER YOUR EMAIL" type="email" required>
+  </div>
+  <button class="w-full bg-primary text-on-primary py-6 font-label-sm uppercase tracking-[0.3em] hover:bg-primary/90 transition-all duration-300" type="submit">Get Early Access</button>
+  </form>
+  </div>
+  </div>
+  </section>
+
+</div>
+
+</main>
+
+<!-- Footer (shared) -->
+<footer class="bg-surface-container">
+<div class="w-full px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col items-center gap-12">
+<div class="text-headline-md md:text-headline-lg font-headline-lg uppercase tracking-widest text-on-surface">MAEVE</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-on-secondary-container uppercase tracking-widest text-label-sm hover:text-primary transition-colors duration-300" href="#">PRIVACY</a>
+<a class="text-on-secondary-container uppercase tracking-widest text-label-sm hover:text-primary transition-colors duration-300" href="#">TERMS</a>
+<a class="text-on-secondary-container uppercase tracking-widest text-label-sm hover:text-primary transition-colors duration-300" href="#">STOCKISTS</a>
+<a class="text-on-secondary-container uppercase tracking-widest text-label-sm hover:text-primary transition-colors duration-300" href="#">CONTACT</a>
+<a class="text-on-secondary-container uppercase tracking-widest text-label-sm hover:text-primary transition-colors duration-300" href="#">PRESS</a>
+</div>
+<div class="text-label-sm text-outline/60 tracking-widest mt-8">© 2026 MAEVE. ALL RIGHTS RESERVED.</div>
+</div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('mobile-menu-icon');
+    let isMenuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            menuIcon.textContent = 'close';
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+            menuIcon.textContent = 'menu';
+        }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            isMenuOpen = false;
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+            menuIcon.textContent = 'menu';
+        });
+    });
+
+    // Read More toggle (mobile Founder's Note)
+    function toggleReadMore() {
+        const container = document.getElementById('text-container');
+        const btn = document.getElementById('read-more-btn');
+        const paragraphs = container.querySelectorAll('p');
+
+        container.classList.toggle('expanded');
+
+        if (container.classList.contains('expanded')) {
+            paragraphs.forEach(p => p.classList.remove('line-clamp-6'));
+            btn.textContent = 'SHOW LESS';
+        } else {
+            paragraphs.forEach(p => p.classList.add('line-clamp-6'));
+            btn.textContent = 'READ FULL NOTE';
+        }
+    }
+
+    // Reveal-on-scroll for desktop view
+    const desktopObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('#desktop-view .reveal-on-scroll').forEach(el => desktopObserver.observe(el));
+
+    // Fade-in for mobile view sections
+    const mobileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('#mobile-view section').forEach(section => {
+        section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+        mobileObserver.observe(section);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId.length < 2) return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.classList.add('shadow-sm');
+        } else {
+            header.classList.remove('shadow-sm');
+        }
+    });
+</script>
+
+</body>
+</html>
