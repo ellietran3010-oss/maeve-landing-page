@@ -10,12 +10,15 @@ Both blocks share one `<header>`/nav and one `<footer>`. Nav/menu links use `#tr
 `#behind`, `#leads` for the desktop sections and `#tribes-m`, `#philosophy-m`, `#behind-m`, `#leads-m`
 for the mobile sections, since both breakpoints have their own copy/layout for these sections.
 
-## Known limitation
+## Images
 
-Images are hotlinked from Stitch's temporary `lh3.googleusercontent.com/aida...` preview CDN. These
-are not guaranteed to stay available long-term. Before relying on this page for real traffic, download
-the images and host them yourself (e.g. in an `/images` folder) and update the `src`/`background-image`
-URLs.
+All images are self-hosted in `/images` (cropped from the original Stitch full-page screenshots after
+Stitch's temporary `lh3.googleusercontent.com/aida...` preview links expired). The 4 mobile-only photos
+(hero/tribe1, "Always Busy", "Rebuilding Herself", founder sketch) reuse the equivalent desktop photos,
+since no high-resolution source for the original mobile-specific photos was available locally. If you
+still have access to the original Stitch project, you can swap in the real mobile photos by replacing
+the files in `/images` (keep the same filenames, or update the `src`/`background-image` references in
+`index.html`).
 
 ## Deploy to Vercel
 
